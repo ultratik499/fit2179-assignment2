@@ -17,20 +17,25 @@
   "projection": {
     "type": "mercator",
     "center": [144.9631, -37.8136],
-    "scale": 120000
+    "scale": 110000
   },
   "layer": [
     {
       "name": "Background Map Layer",
       "data": {
-        "url": "https://raw.githubusercontent.com/dataset-au/gnaf-topojson/master/topojson/state/vic.json",
-        "format": {"type": "topojson", "feature": "vic"}
+        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australia-postcodes.geojson",
+        "format": {"type": "json", "property": "features"}
       },
+      "transform": [
+        {
+          "filter": "datum.properties.postcode == '3000' || datum.properties.postcode == '3006' || datum.properties.postcode == '3008' || datum.properties.postcode == '3053' || datum.properties.postcode == '3141' || datum.properties.postcode == '3051'"
+        }
+      ],
       "mark": {
         "type": "geoshape",
-        "fill": "#f4f4f2",
-        "stroke": "#dcdcdc",
-        "strokeWidth": 1.5
+        "fill": "#f7f7f7",
+        "stroke": "#cccccc",
+        "strokeWidth": 1
       }
     },
     {
@@ -55,7 +60,7 @@
               "field": "Pax_annual",
               "type": "quantitative",
               "title": "Annual Patronage",
-              "scale": {"range": [100, 2500]}
+              "scale": {"range": [100, 2000]}
             },
             "color": {
               "field": "Pax_annual",
@@ -100,7 +105,7 @@
       "mark": {
         "type": "point",
         "shape": "diamond",
-        "size": 60,
+        "size": 50,
         "fill": "#ff7f0e",
         "stroke": "#b35806",
         "strokeWidth": 1,
@@ -112,7 +117,7 @@
         "tooltip": [
           {"field": "Sensor_Description", "type": "nominal", "title": "Pedestrian Sensor"},
           {"field": "Location_Type", "type": "nominal", "title": "Type"},
-          {"field": "Status", "type": "nominal", "title": "Status (Active=A)"}
+          {"field": "Status", "type": "nominal", "title": "Status"}
         ]
       }
     }
