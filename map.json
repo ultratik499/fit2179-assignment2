@@ -23,14 +23,9 @@
     {
       "name": "Background Map Layer",
       "data": {
-        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australia-postcodes.geojson",
-        "format": {"type": "json", "property": "features"}
+        "url": "https://raw.githubusercontent.com/dataset-au/gnaf-topojson/master/topojson/state/vic.json",
+        "format": {"type": "topojson", "feature": "vic"}
       },
-      "transform": [
-        {
-          "filter": "datum.properties.postcode == '3000' || datum.properties.postcode == '3006' || datum.properties.postcode == '3008' || datum.properties.postcode == '3053'"
-        }
-      ],
       "mark": {
         "type": "geoshape",
         "fill": "#f4f4f2",
@@ -41,7 +36,7 @@
     {
       "name": "Train Station Patronage Layer",
       "data": {
-        "url": "c9507eb5-aa48-4a43-aa09-c10a24d1f2fe.csv"
+        "url": "data/c9507eb5-aa48-4a43-aa09-c10a24d1f2fe.csv"
       },
       "encoding": {
         "longitude": {"field": "Stop_long", "type": "quantitative"},
@@ -100,7 +95,7 @@
     {
       "name": "Pedestrian Sensors Layer",
       "data": {
-        "url": "pedestrian-counting-system-sensor-locations.csv"
+        "url": "data/pedestrian-counting-system-sensor-locations.csv"
       },
       "mark": {
         "type": "point",
