@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melbourne Transit & Pedestrian Flow</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fafafa;
+            color: #2c3e50;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 { font-size: 2.5rem; color: #111111; margin-bottom: 5px; }
+        .subtitle { font-size: 1.1rem; color: #7f8c8d; margin-bottom: 30px; }
+        .narrative { font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; }
+        .visualisation-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 15px;
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #95a5a6;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Pulse of Melbourne</h1>
+        <div class="subtitle">Analyzing Post-Pandemic Public Transport Recovery & CBD Foot Traffic</div>
+        
+        <p class="narrative">
+            How has the morning commute changed for everyday Melburnians? By combining annual train network 
+            patronage with local pedestrian sensor clusters, this visualization maps out exactly where transit 
+            activity spills over directly onto our city streets. Hover over the nodes to see specific station entries 
+            and nearby street traffic statistics.
+        </p>
+
+        <div id="vis-map" class="visualisation-box"></div>
+
+        <footer>
+            <p><strong>Author:</strong> [Your Name Here] | <strong>Date:</strong> May 2026</p>
+            <p><strong>Data Sources:</strong> Department of Transport / DataVic (Train Station Patronage) & City of Melbourne Open Data Portal (Pedestrian Counting System).</p>
+        </footer>
+    </div>
+
+    <script>
+        // This JavaScript line embeds your map configuration into the webpage
+        vegaEmbed('#vis-map', 'map.json').then(function(result) {
+            console.log("Map embedded successfully!");
+        }).catch(console.error);
+    </script>
+
+</body>
+</html>
