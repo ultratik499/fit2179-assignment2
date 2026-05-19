@@ -17,19 +17,19 @@
   "projection": {
     "type": "mercator",
     "center": [144.9631, -37.8136],
-    "scale": 130000
+    "scale": 160000
   },
   "layer": [
     {
-      "name": "Background Map Layer",
+      "name": "Background Map Canvas",
       "data": {
-        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/us-10m.json",
-        "format": {"type": "topojson", "feature": "states"}
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#f9f9f9",
-        "stroke": "#e0e0e0",
+        "fill": "#f4f4f2",
+        "stroke": "#dcdcdc",
         "strokeWidth": 1
       }
     },
@@ -55,7 +55,7 @@
               "field": "Pax_annual",
               "type": "quantitative",
               "title": "Annual Patronage",
-              "scale": {"range": [100, 2000]}
+              "scale": {"range": [100, 2500]}
             },
             "color": {
               "field": "Pax_annual",
@@ -82,7 +82,7 @@
           "encoding": {
             "text": {
               "condition": {
-                "test": "datum.Stop_name == 'Flinders Street' || datum.Stop_name == 'Southern Cross' || datum.Stop_name == 'Melbourne Central'",
+                "test": "datum.Stop_name == 'Flinders Street' || datum.Stop_name == 'Southern Cross' || datum.Stop_name == 'Melbourne Central' || datum.Stop_name == 'Parliament' || datum.Stop_name == 'Flagstaff'",
                 "field": "Stop_name",
                 "type": "nominal"
               },
