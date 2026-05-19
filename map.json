@@ -17,24 +17,19 @@
   "projection": {
     "type": "mercator",
     "center": [144.9631, -37.8136],
-    "scale": 110000
+    "scale": 130000
   },
   "layer": [
     {
       "name": "Background Map Layer",
       "data": {
-        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australia-postcodes.geojson",
-        "format": {"type": "json", "property": "features"}
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/us-10m.json",
+        "format": {"type": "topojson", "feature": "states"}
       },
-      "transform": [
-        {
-          "filter": "datum.properties.postcode == '3000' || datum.properties.postcode == '3006' || datum.properties.postcode == '3008' || datum.properties.postcode == '3053' || datum.properties.postcode == '3141' || datum.properties.postcode == '3051'"
-        }
-      ],
       "mark": {
         "type": "geoshape",
-        "fill": "#f7f7f7",
-        "stroke": "#cccccc",
+        "fill": "#f9f9f9",
+        "stroke": "#e0e0e0",
         "strokeWidth": 1
       }
     },
